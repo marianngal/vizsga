@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FajlKezeles", "FajlKezeles\FajlKezeles.csproj", "{4023A934-A3AA-4972-9A7C-628251D613D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerialize", "JsonKezeles\JsonSerialize.csproj", "{520A06A8-AA19-4C4B-AE7E-94B85713AC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonDeserialize", "JsonDeserialize\JsonDeserialize.csproj", "{935C23CC-CA83-498D-B0B0-FB33A9C3A97C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FajlPelda", "FajlPelda\FajlPelda.csproj", "{5C217681-8660-423E-9530-1D1AB59454AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4023A934-A3AA-4972-9A7C-628251D613D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4023A934-A3AA-4972-9A7C-628251D613D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4023A934-A3AA-4972-9A7C-628251D613D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4023A934-A3AA-4972-9A7C-628251D613D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{520A06A8-AA19-4C4B-AE7E-94B85713AC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{520A06A8-AA19-4C4B-AE7E-94B85713AC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{520A06A8-AA19-4C4B-AE7E-94B85713AC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{520A06A8-AA19-4C4B-AE7E-94B85713AC37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935C23CC-CA83-498D-B0B0-FB33A9C3A97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935C23CC-CA83-498D-B0B0-FB33A9C3A97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935C23CC-CA83-498D-B0B0-FB33A9C3A97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935C23CC-CA83-498D-B0B0-FB33A9C3A97C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C217681-8660-423E-9530-1D1AB59454AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C217681-8660-423E-9530-1D1AB59454AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C217681-8660-423E-9530-1D1AB59454AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C217681-8660-423E-9530-1D1AB59454AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7EEE13DA-F3DE-46F1-83F7-BF2D34A3DCDC}
+	EndGlobalSection
+EndGlobal

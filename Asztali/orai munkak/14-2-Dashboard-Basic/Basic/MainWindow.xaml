@@ -1,0 +1,87 @@
+﻿<Window x:Class="MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM"
+        mc:Ignorable="d"
+        Title="Dashboard" 
+        Width="400"
+        SizeToContent="Height"
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen">
+
+    <!-- Ablakszintű stílusok definiálása -->
+    <Window.Resources>
+        
+        <!-- minden gomb formázása egyszerre -->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        
+        <!-- nevesített (explicit) stílusok -->
+        <Style TargetType="Separator" x:Key="SajatStilus">
+            <Setter Property="Margin" Value="10" />
+        </Style>
+        
+    </Window.Resources>
+    
+    <Grid>
+
+        <Grid.Resources>
+            <!-- Bármilyen elem szintjén lehet stílusoni -->
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Menügombok -->
+        
+        <StackPanel Grid.Column="0">
+
+            <!-- Stílus explicit alkalmazása egy konkrét elemen -->
+            <Separator Style="{StaticResource SajatStilus}" />
+
+            <Button Click="CreateKattintas">
+                <Image Source="/Ikonok/New.png" />
+            </Button>
+            
+            <Button Click="UpdateKattintas">
+                <Image Source="/Ikonok/Edit.png" />
+            </Button>
+            
+            <Button Click="DeleteKattintas">
+                <Image Source="/Ikonok/Delete.png" />
+            </Button>
+            
+            <Separator Style="{StaticResource SajatStilus}" />
+
+            <Button Click="LoadKattintas">
+                <Image Source="/Ikonok/Load.png" />
+            </Button>
+            
+            <Button Click="SaveKattintas">
+                <Image Source="/Ikonok/Save.png" />
+            </Button>
+            
+            <Button Click="ExitKattintas">
+                <Image Source="/Ikonok/Exit.png" />
+            </Button>
+
+            <Separator Style="{StaticResource SajatStilus}" />
+            
+        </StackPanel>
+
+        <!-- Adatok listája -->
+
+        <ListBox 
+            Name="userListBox" 
+            Margin="10" 
+            Grid.Column="1" />
+
+    </Grid>
+</Window>

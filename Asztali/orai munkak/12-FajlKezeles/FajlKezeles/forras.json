@@ -1,0 +1,20 @@
+[
+	{ 
+		"name" : "Anita", 
+		"evfolyam" : 10,
+		"csoport" : "C",
+		"estis" : true,
+		"osztalyzatok": [
+			{ "targy" : "matek", "jegy" : 5 },
+			{ "targy" : "matek", "jegy" : 5 },
+			{ "targy" : "matek", "jegy" : 5 },
+			{ "targy" : "matek", "jegy" : 5 },
+		]
+	},
+	{ 
+		"name" : "Anita", 
+		"evfolyam" : 10,
+		"csoport" : "C",
+		"estis" : true
+	},
+]

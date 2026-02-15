@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<diakok>
+	<tanulo>
+		<nev>Anita</nev>
+		<evfolyam>10</evfolyam>
+		<csoport>C</csoport>
+		<estis>true</estis>
+		<osztalyzatok>
+			<jegy targy="matek" ertek="5" />
+			<jegy targy="tori" ertek="4" />
+			<jegy targy="magyar" ertek="3" />
+			<jegy targy="info" ertek="5" />
+		</osztalyzatok>
+	</tanulo>
+	<tanulo nev="Anita" evfolyam="10" stb="..." />
+</diakok>

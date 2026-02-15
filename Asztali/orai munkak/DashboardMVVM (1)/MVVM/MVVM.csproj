@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Ikonok\Delete.png" />
+    <Resource Include="Ikonok\Edit.png" />
+    <Resource Include="Ikonok\Exit.png" />
+    <Resource Include="Ikonok\Load.png" />
+    <Resource Include="Ikonok\New.png" />
+    <Resource Include="Ikonok\Save.png" />
+  </ItemGroup>
+
+</Project>

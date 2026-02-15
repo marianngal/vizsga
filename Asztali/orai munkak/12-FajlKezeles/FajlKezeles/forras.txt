@@ -1,0 +1,16 @@
+Bence;12;B;false
+Csaba;13;C;false
+Bence;12;B;false
+Csaba;13;C;false
+Bence;12;B;false
+Anita;10;A;true
+Csaba;13;C;false
+Bence;12;B;false
+Csaba;13;C;false
+Bence;12;B;false
+Csaba;13;C;false
+Bence;12;B;false
+Csaba;13;C;false
+Bence;12;B;false
+Csaba;13;C;false
+Dénes;10;A;true
