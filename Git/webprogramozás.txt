@@ -1,0 +1,3 @@
+https://dummyjson.com/
+https://jokeapi.dev/
+https://css-tricks.com

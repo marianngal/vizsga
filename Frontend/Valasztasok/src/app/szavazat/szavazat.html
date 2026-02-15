@@ -1,0 +1,53 @@
+<h1>Választások Objektum tömb</h1>
+
+<h2>Adatfeltöltés</h2>
+<div class="form-group">
+    <label for="keruletInput">Kerület:</label>
+    <input type="number" class="form-control" id="keruletInput" [(ngModel)]="keruletInput">
+</div>
+
+<div class="form-group">
+    <label for="szavazatInput">Szavazatok száma:</label>
+    <input type="number" class="form-control" id="szavazatInput" [(ngModel)]="szavazatInput">
+</div>
+
+<div class="form-group">
+    <label for="vezeteknevInput">Vezetéknév:</label>
+    <input type="text" class="form-control" id="vezeteknevInput" [(ngModel)]="vezeteknevInput">
+</div>
+
+<div class="form-group">
+    <label for="keresztnevInput">Keresztnév:</label>
+    <input type="text" class="form-control" id="keresztnevInput" [(ngModel)]="keresztnevInput">
+</div>
+
+
+<div class="form-group">
+    <label for="partInput">Párt:</label>
+    <input type="text" class="form-control" id="partInput" [(ngModel)]="partInput">
+</div>
+
+<button class="btn btn-primary w-100 my-3" (click)="Mentes()">Adatok mentése</button>
+
+<h2>Adatok megjelenítése</h2>
+<table class="table table-striped table-bordered table-hover table-sm text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th>Kerület</th>
+      <th>Szavazatok száma</th>
+      <th>Vezetéknév</th>
+      <th>Keresztnév</th>
+      <th>Párt(HEP,GYEP,ZEP,TISZ)/független(-)</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+        <tr *ngFor="let szavazo of szavazatok">
+        <td>{{szavazo.kerulet}}.</td>
+        <td>{{szavazo.szavazat}} db</td>
+        <td>{{szavazo.vezeteknev}}</td>
+        <td>{{szavazo.keresztnev}}</td>
+        <td>{{szavazo.part}}</td>   
+   </tr>
+  </tbody>
+</table>

@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2>Tanulók listája</h2>
+        <a class="btn btn-primary" routerLink="/uj">Új tanuló</a>
+    </div>
+
+    <div *ngIf="loading" class="alert alert-info mt-3">Betöltés…</div>
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+    <div *ngIf="info" class="alert alert-success mt-3">{{ info }}</div>
+
+    <table class="table table-striped table-bordered mt-3" *ngIf="!loading && tanulok.length">
+        <thead class="table-light">
+            <tr>
+                <th style="width:60px">#</th>
+                <th>Név</th>
+                <th>Osztály</th>
+                <th style="width:120px">Pontszám</th>
+                <th style="width:140px">Műveletek</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of tanulok; let i = index">
+                <td>{{ i+1 }}</td>
+                <td>{{ t.nev }}</td>
+                <td>{{ t.osztaly }}</td>
+                <td>{{ t.pontszam }}</td>
+                <td class="d-flex gap-2">
+                    <a class="btn btn-sm btn-success" [routerLink]="['/modosit', t.id]">
+                        Módosítás
+                    </a>
+                    <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(t); $event.stopPropagation()">
+                        Törlés
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="!loading && !tanulok.length" class="alert alert-warning mt-3">
+        Nincs megjeleníthető adat.
+    </div>
+</div>

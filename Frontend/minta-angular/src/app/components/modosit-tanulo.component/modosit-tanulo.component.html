@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h2>Tanuló módosítása</h2>
+
+    <div *ngIf="loading" class="alert alert-info mt-3">Adatok betöltése…</div>
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+    <div *ngIf="info" class="alert alert-success mt-3">{{ info }}</div>
+
+    <form class="mt-3" [formGroup]="form" (ngSubmit)="submit()" *ngIf="!loading && !error">
+        <div class="mb-3">
+            <label class="form-label">Név</label>
+            <input class="form-control" formControlName="nev" placeholder="pl. Kiss Péter">
+            <div class="text-danger mt-1" *ngIf="nev?.touched && nev?.invalid">Min. 3 karakter.</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Osztály</label>
+            <input class="form-control" formControlName="osztaly" placeholder="pl. 9.A">
+            <div class="text-danger mt-1" *ngIf="osztaly?.touched && osztaly?.invalid">
+                Formátum: 9.A (szám.pont nagybetű).
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Pontszám</label>
+            <input type="number" class="form-control" formControlName="pontszam" min="0" max="100">
+            <div class="text-danger mt-1" *ngIf="pontszam?.touched && pontszam?.invalid">
+                0 és 100 közötti érték legyen.
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="saving">
+            {{ saving ? 'Mentés…' : 'Módosítás mentése' }}
+        </button>
+        <a class="btn btn-secondary ms-2" routerLink="/">Mégse</a>
+    </form>
+</div>

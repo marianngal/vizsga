@@ -1,0 +1,4 @@
+https://github.com/itmp-hu/itmp-nodejs-basics
+https://www.linkedin.com/pulse/how-fix-npm-file-cprogram-filesnodejsnpmps1-cannot-loaded-hasan-ojsnc/
+https://www.heroku.com/
+https://vercel.com/

@@ -1,0 +1,180 @@
+Olvassuk el figyelmesen a feladatot!
+A végén a Vendor mappát töröljük!
+A Postman teszteket csomagoljuk be!
+
+1. XAMPP indítása
+2. PhpStorm indítása
+3. File -> New Project -> Laravel -> mappaválasztás-> Névadás: Mintavizsga
+def. interpreter: HerdLite, esetleg a Sanctum-ot bekatt., de semmi mást, és Create
+Ezzel egyenértékű, ha konzolon kiadjuk (a megfelelő mapában):
+laravel new Mintavizsga
+itt sok a kérdés, pl. npm nem kell
+
+ --- installing Laravel core ---
+
+Alapparancsok:
+php artisan serve - működik-e?
+
+php artisan make:migration create_tests_table,
+php artisan make:controller TestController,
+php artisan migrate
+
+5. php artisan install:api (a projekt mappájában)
+
+migration? no
+Ellenőrzés: routes/api.php, routes/api.php, User modellben benne van-e a HasApiTokens
+
+6. Modellek elkészítése: előbb a kategória tábla, utána a tőle függő tábla.
+Laravel-> New Eloquent Model:
+Modell név: Kategoria (nagybetű!!!), Tábla név: kategoriak
+nev: string mezo (ha nem kötelező, akkor bekattintjuk a nullable-t mellette)
+id field -> be
+timestamp -> be
+soft delete -> be
+add fillable array -> be
+Alul mindent be kell kattintani, kivéve a policy-t!
+OK, Generate
+Ellenőrzés: a modelben: protected $table = 'kategoriak';
+A requestbe lehet beleírni további követelményeket, pl.:
+public function rules()
+    {
+        return [
+            'nev' => ['required', 'string', 'max:255'
+Rule::unique('kategoriak', 'nev')->ignore($this->route('kategoriak')),],
+        ];
+    }
+A resource-ban adjuk meg, hogy mi jelenjen meg, ha meghívunk egy rekordot.
+A controller vezérli, hogyan adjuk vissza az adatokat a különböző kérésekre.
+A create_kategoriaban, a migration-ben lehet megadni a unique-ot:
+  public function up()
+    {
+        Schema::create('kategoriak', function (Blueprint $table) {
+            $table->id();
+            $table->string('nev')->unique();
+        });
+    }
+7. Seedelés - feltöltés előkészítése:
+database-> seeders-> DatabaseSeeder.php-ban:
+Kategoria::factory()->create([
+            'nev' => 'Ház',            
+        ]);
+
+vagy ciklussal:
+ $adatok=['Ház','Lakás', 'Építési telek', 'Garázs', 'Mezőgazdasági terület', 'Ipari ingatlan'];
+
+        foreach ($adatok as $adat) {
+            Kategoria::create(['nev'=>$adat]);
+        }
+
+8. Elindítjuk a Xampp-ot és belelépünk.
+9. Létrehozzuk az adatbázist kézzel:
+ CREATE DATABASE mintavizsga
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+
+10. Beállítjuk a környezeti változókat az .env-ben (kitöröljük a #-eket):
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=mintavizsga
+DB_USERNAME=root
+DB_PASSWORD=
+
+11. Kitöröljük a felesleges create_database-eket a migration mappából.
+12. Utána kiadjuk: php artisan migrate
+13. Seedelés: php artisan db:seed
+vagy 0-ról: php artisan migrate:fresh --seed
+
+14. Ha elrontottam a db-sémát, így kell változtatni rajta:
+php artisan migrate:fresh
+Lebontja az adatbázist és felépíti újra.
+Újra kell seedelni.
+
+15. Másik tábla (függő) létrehozása:
+Laravel-> New Eloquent Model:
+Modell név: Ingatlan (nagybetű!!!), Tábla név: kingatlanok
+Name: kategoria (tábla neve) Type: App/Models/Kategoria
+Name: leiras Type: string, nullable
+hirdetesDatuma - date, nullable
+tehermentes - boolean
+ar - integer
+kepUrl -string, nullable
+
+Ellenőrzés: create_ingatlanok
+
+16. Alapértelmezetten mai dátum legyen:
+use Illuminate\Support\Carbon;
+$table->date('hirdetesDatuma')->nullable()->default(Carbon::now());
+
+17. Ingatlanresource-ban:
+public function toArray(Request $request)
+    {
+        return [
+            'id' => $this->id,
+            'kategoria' => new KategoriaResource($this->whenLoaded('kategoria')),
+            'leiras' => $this->leiras,
+            'hirdetesDatuma' => $this->hirdetesDatuma,
+            'tehermentes' => $this->tehermentes,
+            'ar' => $this->ar,
+            'kepUrl' => $this->kepUrl,
+        ];
+    }
+
+18. Ingatlancontrollerben az index() fv.:
+ public function index()
+    {
+        return IngatlanResource::collection(Ingatlan::with('kategoriak')->get());
+    }
+… és a show() fv....:
+public function show(Ingatlan $ingatlan)
+    {
+        return new IngatlanResource($ingatlan->load('kategoriak'));
+    }
+
+19. 204-es hibakód a store-nál:
+public function store(IngatlanRequest $request)
+    {
+        $validated = $request->validated();
+        $ingatlan=Ingatlan::create($validated);
+        return response()->json($ingatlan, 201);
+    }
+
+20. Törlésnél 204-es hibakód:
+ public function destroy(Ingatlan $ingatlan)
+    {
+        $ingatlan->delete();
+
+        return response()->json(data: null, status: 204);
+    }
+
+21. Útvonalak létrehozása api.php-ban:
+use App\Http\Controllers\IngatlanController;
+use App\Http\Controllers\KategoriaController;
+use Illuminate\Http\Request;
+
+Route::apiResource('ingatlan', IngatlanController::class)
+    ->missing(function (Request $request) {
+        return response()->json(['data' => 'Ilyen ingatlan nem található.'],
+    404);
+    });
+Ellenőrzés: php artisan route:list
+
+22. .env fájlban:
+SESSION_DRIVER=file
+
+23. Az ingatlanrequestbe hibaüzenetek:
+ public function messages()
+    {
+        return [
+            'ar.required' => 'Hiányos adatok.',
+            'tehermentes.boolean' => 'Rossz adatot adott meg.',
+            'ar.integer' => 'Rossz adatok.',
+            'kategoria.exists' => 'Nincs ilyen kategória!'
+            ];
+    }
+
+------------------------------------------------------
+
+Eloqent -> Model -> Hasmany, BelongsTo
+Megjelenítés: resource: mi jelenjen meg és a controllerben is be kell állítani.
+

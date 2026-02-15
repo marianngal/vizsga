@@ -1,0 +1,133 @@
+cd kv.név
+ng new Objektumhasznalat --no-standalone
+yes
+CSS
+no
+-- kicsomagolás -- (Installing packages (npm)...)
+cd Objektumhasznalat
+ng g c Kektura
+yes
+-- Create --
+ng g c Hiba
+-- Create --
+Hol van a két komponensünk? src/app/Kektura és Hiba
+1. feladat: Routing-elkészítése: src/app/app-routing-module.ts-ben:
+const routes: Routes = [
+	{path: "Kektura", component:Kektura},
+	{path: "Hiba", component:Hiba},
+	{path: "", redirectTo:"/Kektura", pathMatch: "full"},
+	{path: "**", component: Hiba}
+];
+2. feladat: Bootstrap hozzáadása:
+npm install bootstrap
+-- fölteszi a Bootstrap-fájlokat --> a node_modules mappában meg kell jelennie a bootstrap-nek.
+
+3. feladat: Bootstrap beállítása: az angular.json fájlban a 34. sorban a styles-ban:
+"styles": [
+"./node_modules/bootstrap/dist/css/bootstrap.css",
+	"src/styles.css"
+]
+
+4. elindítjuk a szervert:
+ng serve
+-- Building ... --
+5. megnézzük a kezdőoldalunkat, amit a szerver generált le: http://localhost:4200/Kektura
+Kektura works!
+
+6. app.html-ből kitöröljük a felesleget, csak ez legyen benne:
+<div class="container">
+	<roter-outlet/>
+</div>
+
+7. forms-modul beállítása az app-module.ts-ben, az imports részben, a 17. sor után:
+imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+--> magától generál egy sort fenn.
+
+8. Hibakezelés beállítása: az app/hiba/hiba.html-be írjuk:
+<div class="alert alert-danger" role="alert">
+  Hiba: 404. A keresett oldal nem található!
+</div>
+
+9. kektura.ts-be belemásoljuk a forrást a 10. sorba, az export class..-blokkon belülre:
+ adatok: string[] = [
+	"Sumeg, vasutallomas;Sumeg, buszpalyaudvar;1,208;16;6;n",
+	"Sumeg, buszpalyaudvar;Mogyorosi-domb, geologiai bemutatohely;1,512;24;8;n", .....
+
+10. a const-ot kitöröljük, a string[]-t beírjuk.
+
+11. megcsináljuk az adat interface-t (az osztályon kívül!):
+interface KekturaAdat {
+  start: string;
+  end: string;
+  distance: number;
+  ascent: number;
+  descent: number;
+  type: string;
+}
+
+12. KekturaElem osztály elkészítése a Kektura Adat interface-ből:
+class KekturaElem implements KekturaAdat {
+  start: string;
+  end: string;
+  distance: number;
+  ascent: number;
+  descent: number;
+  type: string;
+
+  constructor(adat: string) {
+    const reszletek = adat.split(";");
+    this.start = reszletek[0];
+    this.end = reszletek[1];
+    this.distance = parseFloat(reszletek[2].replace(",", "."));
+    this.ascent = parseInt(reszletek[3]);
+    this.descent = parseInt(reszletek[4]);
+    this.type = reszletek[5];
+  }
+
+13. KékturaBetöltő függvény készítése az osztályon belül!, az interface fölé:
+Kekturafeltolto(feltoltendoElem: string[]): KekturaElem[] {
+  let beolvasottAdatok: KekturaElem[] = [];
+  for (let i = 0; i < feltoltendoElem.length; i++) {
+    beolvasottAdatok.push(new KekturaElem(feltoltendoElem[i]));
+  }
+  return beolvasottAdatok;
+ }
+
+14. a feltöltő függvény használata az osztályon belül!, azaz az objektum-tömb létrehozása a forrás-adatokból:
+
+ kekturaAdatok: KekturaElem[] = this.Kekturafeltolto(this.adatok);
+
+} <-- itt van az osztály vége!
+
+15. A kektura.html-ből kitöröljük a <p>kektura works!</p>-öt, és megírjuk a táblázatos megjelenítést:
+<h1>Kéktúra Objektum tömb</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Indulás</th>
+      <th>Érkezés</th>
+      <th>Távolság (km)</th>
+      <th>Szintemelkedés (m)</th>
+      <th>Szintcsökkenés (m)</th>
+      <th>Igen/nem</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let szakasz of kekturaAdatok">
+      <td>{{ szakasz.start }}</td>
+      <td>{{ szakasz.end }}</td>
+      <td>{{ szakasz.distance }}</td>
+      <td>{{ szakasz.ascent }}</td>
+      <td>{{ szakasz.descent }}</td>
+      <td>{{ szakasz.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+16. Megnézzük a böngészőben.
+

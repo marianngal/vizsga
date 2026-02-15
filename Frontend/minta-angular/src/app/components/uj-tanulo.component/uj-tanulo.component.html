@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h2>Új tanuló felvétele</h2>
+    <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+    <form class="mt-3" [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label class="form-label">Név</label>
+            <input class="form-control" formControlName="nev" placeholder="pl. Kiss Péter">
+            <div class="text-danger mt-1" *ngIf="nev?.touched && nev?.invalid">Min. 3 karakter.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Osztály</label>
+            <input class="form-control" formControlName="osztaly" placeholder="pl. 9.A">
+            <div class="text-danger mt-1" *ngIf="osztaly?.touched && osztaly?.invalid">Formátum: 9.A</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Pontszám</label>
+            <input type="number" class="form-control" formControlName="pontszam" min="0" max="100">
+            <div class="text-danger mt-1" *ngIf="pontszam?.touched && pontszam?.invalid">0–100</div>
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="saving">{{ saving ? 'Mentés…' : 'Mentés' }}</button>
+        <a class="btn btn-secondary ms-2" routerLink="/">Mégse</a>
+    </form>
+</div>

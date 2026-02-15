@@ -1,0 +1,86 @@
+New project
+Solution name: Mintavizsga2
+Project name: CLI_JSON
+Framework: .NET 8
+Create
+
+Ha JSON-ben vannak az adatok, azt nyugodtan rábízhatom a VS-ra, hogy szeretném őket osztályként látni.
+JSON -> osztályok
+osztályokból -> JSON-fájlok
+22-es VS-tól kezdve:
+(Előbb megnyitom a JSON-t és CTRL+A, CTRL+C)
+Edit/Paste special -> Paste JSON as classes, Paste XML as classes
+
+De előbb létrehozok egy új osztályt:
+project name-re jobb gomb -> Add -> Class -> osztály neve -> utána mindent kitörlök, és abba másolom bele a JSON-ből az osztályokat.
+
+1. Minden JSON-nek/ táblának külön osztályt csinálok a projektnéven belül:
+- Ad.cs
+- Seller.cs
+- Category.cs
+
+2. Forrásfájl hozzáadása:
+Projektnév jobb gomb -> Add -> Existing item -> Kikeressük a fájlt
+Majd rákattintok a forrásfájlra, jobb gomb -> Propertie -> Copy to output dir -> Copy if newer -> Ezzel bekerül a buildelésnél az exe mellé.
+
+3. Felveszem a program.cs-be a fájl nevét stringként.
+string fajl = "realestates.csv";
+List<Ad> lista=Ad.LoadFromJSON(fajl);
+
+4. A betölteni kívánt osztályon belül felveszek egy statikus metódust Public static szócskával.
+public static List<Ad> LoadFromJSON (string fajlnev){
+    string tartalom=File.ReadAllText(fajlnev);
+
+    List<Ad> lista = JsonSerializer.Deserialize<List<Ad>>(tartalom);
+    return lista;
+}
+
+public static void SaveToJSON(List<Ad> lista) { 
+    string json = JsonSerializer.Serialize(lista);
+    File.WriteAllText("export.json", json);
+}
+
+5. JsonSerializer.Deserialize: json -> objektum
+és JsonSerializer.Serialize: objektum -> json
+
+6. Solution névre jobb katt. -> Add -> New project -> CLI_CSV
+7. Létrehozni az osztályt.
+8. Létrehozni a konstruktort. Egy normálisat, és egy szövegből valót:
+
+9. a Program.cs-ben létrehozni a fájlbetöltést.
+List<Ad> lista=File
+    .ReadAllLines("realestates.csv")
+    .Skip(1)
+    .Select(sor=>new Ad(sor))
+    .ToList();
+
+Console.WriteLine(lista.Count);
+string json_szoveg=JsonSerializer.Serialize(lista);
+
+10. Fájlba írás: File.WriteAllText(fájlnév, string)
+using System.Text.Json;
+var lista = new List<Person>
+string json_szoveg = JsonSerializer.Serialize(lista);
+File.WriteAllText("export.json", json_szoveg); 
+
+11. szűrt lista:
+//szűrt adatok:
+List<Ad> szurt_lista=lista.Where(x=>x.area>100).ToList();
+string json_szurt = JsonSerializer.Serialize(szurt_lista);
+
+File.WriteAllText("export_szurt.json", json_szurt);
+
+vagy hagyományos módon, tömbbe olvasni be:
+
+string[] sorok=File.ReadAllLines("valami.csv");
+string[] sorok = File.ReadAllLines("valami.csv");
+string[] adatSorok = sorok.Skip(1).ToArray();   // első sor (header) kihagyása
+
+foreach (string sor in adatSorok)
+{
+    string[] mezok = sor.Split(';'); 
+}
+
+
+
+​

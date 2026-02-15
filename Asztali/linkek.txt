@@ -1,0 +1,7 @@
+Hivatalos dokumentáció
+https://learn.microsoft.com/en-us/dotnet/desktop/wpf/
+ 
+Részben magyar tutorial
+https://wpf-tutorial.com/Localization/LanguageStatus/hu/
+
+https://richardkorom.hu/feladatok/vizsga/szakmai-vizsga-gyakorlat/#

@@ -1,0 +1,13 @@
+1. új projekt
+2. php artisan install:api
+3. .env változók
+4. new eloquent (először a független táblát)
+5. xampp -> CREATE DATABASE mintavizsga
+  CHARACTER SET utf8mb4
+  COLLATE utf8mb4_unicode_ci;
+6. php artisan migrate
+7. php artisan serve
+8. Route: apiResource ('cars', CarController)
+9. php artisan route:list
+
+
