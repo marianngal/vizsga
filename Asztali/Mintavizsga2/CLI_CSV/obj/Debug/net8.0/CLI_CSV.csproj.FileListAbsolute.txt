@@ -1,0 +1,15 @@
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\realestates.csv
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\CLI_CSV.exe
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\CLI_CSV.deps.json
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\CLI_CSV.runtimeconfig.json
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\CLI_CSV.dll
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\bin\Debug\net8.0\CLI_CSV.pdb
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.AssemblyInfoInputs.cache
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.AssemblyInfo.cs
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.csproj.CoreCompileInputs.cache
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.dll
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\refint\CLI_CSV.dll
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.pdb
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\CLI_CSV.genruntimeconfig.cache
+C:\Users\X\source\repos\Mintavizsga2\CLI_CSV\obj\Debug\net8.0\ref\CLI_CSV.dll

@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\X\\source\\repos\\Mintavizsga2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF0C76AC-C4C3-4A8D-B695-7B42F969C732}|CLI_CSV\\CLI_CSV.csproj|c:\\users\\x\\source\\repos\\mintavizsga2\\cli_csv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF0C76AC-C4C3-4A8D-B695-7B42F969C732}|CLI_CSV\\CLI_CSV.csproj|solutionrelative:cli_csv\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\X\\source\\repos\\Mintavizsga2\\CLI_CSV\\Program.cs",
+              "RelativeDocumentMoniker": "CLI_CSV\\Program.cs",
+              "ToolTip": "C:\\Users\\X\\source\\repos\\Mintavizsga2\\CLI_CSV\\Program.cs*",
+              "RelativeToolTip": "CLI_CSV\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T18:01:57.348Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
