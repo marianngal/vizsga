@@ -36,9 +36,10 @@
               "RelativeDocumentMoniker": "Restaurant\\Menu.cs",
               "ToolTip": "C:\\Users\\Mariann\\source\\repos\\Restaurant\\Restaurant\\Menu.cs",
               "RelativeToolTip": "Restaurant\\Menu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T20:05:57.308Z"
+              "WhenOpened": "2025-06-01T20:05:57.308Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,9 +61,10 @@
               "RelativeDocumentMoniker": "Restaurant\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Mariann\\source\\repos\\Restaurant\\Restaurant\\MainWindow.xaml.cs",
               "RelativeToolTip": "Restaurant\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T19:28:36.89Z"
+              "WhenOpened": "2025-06-01T19:28:36.89Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,13 +74,9 @@
               "RelativeDocumentMoniker": "Restaurant\\Pizza.cs",
               "ToolTip": "C:\\Users\\Mariann\\source\\repos\\Restaurant\\Restaurant\\Pizza.cs",
               "RelativeToolTip": "Restaurant\\Pizza.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAcwCoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAA3wDoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-01T19:29:48.188Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }

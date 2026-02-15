@@ -21,7 +21,7 @@ namespace Restaurant
         {
             InitializeComponent();
             ViewModel.Load();
-            DataContext = ViewModel;
+            this.DataContext = ViewModel;
         }
     }
 }

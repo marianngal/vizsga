@@ -5,17 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Restaurant"
         mc:Ignorable="d"
-        Title="MainWindow"
-        Height="450"
-        Width="500">
-    <!--Ezt a részt törölnöm kellett a chatgpt szerint, különben hibás volt a kód:-->
-    <!-- "XAML-ban a DataContext-et már nem szükséges beállítani." - mondta a chatgpt. --> 
-    <!--<Window.DataContext>
+        
+        Title="Restaurant"
+        SizeToContent="WidthAndHeight"
+        FontSize="24">    
+    
+    <Window.DataContext>
         <local:Menu/>
-    </Window.DataContext>-->
+    </Window.DataContext>
 
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <DataTemplate x:Key="ListaElem" DataType="local:Pizza">
+            <WrapPanel>
+                <Label Content="{Binding Size}" />
+                <Label Content="{Binding Price}" />
+                <Label Content="{Binding Name}" />
+            </WrapPanel>
+        </DataTemplate>
+    </Window.Resources>
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MinWidth="250" Width="5*" />
+            <ColumnDefinition MinWidth="250" Width="4*" />
+        </Grid.ColumnDefinitions>
 
+        <ListBox Margin="10" Grid.Column="0"
+            ItemsSource="{Binding Items}" 
+            SelectedItem="{Binding Selected, Mode=TwoWay}"
+            ItemTemplate="{StaticResource ListaElem}"/>
+       
+        <StackPanel Margin="10" Grid.Column="1">
+            <Label>Név</Label>
+            <TextBox
+                Text="{Binding Selected.Name, Mode=TwoWay}"></TextBox>
+            <Label>Ár</Label>
+            <TextBox
+                Text="{Binding Selected.Price, Mode=TwoWay}"></TextBox>
+            <Label>Méret</Label>
+            <TextBox
+                Text="{Binding Selected.Size, Mode=TwoWay}"></TextBox>
+        </StackPanel>
+            
     </Grid>
 </Window>
